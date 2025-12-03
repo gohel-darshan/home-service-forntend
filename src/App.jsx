@@ -53,6 +53,7 @@ import BasicDetails from './pages/worker/onboarding/BasicDetails';
 import KycUpload from './pages/worker/kyc/KycUpload';
 import KycStatus from './pages/worker/kyc/KycStatus';
 import KycForm from './pages/worker/kyc/KycForm';
+import KycWaiting from './pages/worker/kyc/KycWaiting';
 import JobRequests from './pages/worker/jobs/JobRequests';
 import MyJobs from './pages/worker/jobs/MyJobs';
 import JobDetail from './pages/worker/jobs/JobDetail';
@@ -213,6 +214,7 @@ function App() {
             <Route path="kyc/form" element={<WorkerRoute><KycForm /></WorkerRoute>} />
             <Route path="kyc/upload" element={<WorkerRoute><KycUpload /></WorkerRoute>} />
             <Route path="kyc/status" element={<WorkerRoute><KycStatus /></WorkerRoute>} />
+            <Route path="kyc/waiting" element={<WorkerRoute><KycWaiting /></WorkerRoute>} />
             <Route index element={<WorkerRoute><WorkerDashboard /></WorkerRoute>} />
             <Route path="dashboard" element={<WorkerRoute><WorkerDashboard /></WorkerRoute>} />
             <Route path="requests" element={<WorkerRoute><JobRequests /></WorkerRoute>} />

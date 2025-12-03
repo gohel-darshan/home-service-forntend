@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Clock, CheckCircle, XCircle, ArrowLeft } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
@@ -11,12 +11,20 @@ export default function KycStatus() {
   const { user } = useAuth();
   const kycStatus = user?.workerProfile?.kycStatus || 'NOT_STARTED';
 
+  // Auto redirect to dashboard when KYC is verified
+  useEffect(() => {
+    if (kycStatus === 'VERIFIED') {
+      toast.success('KYC Approved! Welcome to your dashboard');
+      navigate('/worker');
+    }
+  }, [kycStatus, navigate]);
+
   // Simulation helper for demo
   const simulateApproval = async () => {
     try {
       // In real app, this would be done by admin
+      // The useEffect will handle the redirect automatically
       toast.success('KYC Approved! (Demo)');
-      navigate('/worker');
     } catch (error) {
       toast.error('Failed to approve KYC');
     }

@@ -87,7 +87,7 @@ export default function KycForm() {
       await workersAPI.submitKyc(kycData);
       
       toast.success('Documents submitted successfully!');
-      navigate('/worker/kyc/status');
+      navigate('/worker/kyc/waiting');
     } catch (error) {
       toast.error('Failed to submit documents');
     } finally {
